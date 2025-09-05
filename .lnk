@@ -14,7 +14,6 @@
 .config/nvim/lua/plugins/conform.lua
 .config/nvim/lua/plugins/copilot.lua
 .config/nvim/lua/plugins/flash.lua
-.config/nvim/lua/plugins/funky.lua
 .config/nvim/lua/plugins/gitsigns.lua
 .config/nvim/lua/plugins/lint.lua
 .config/nvim/lua/plugins/lsp.lua
