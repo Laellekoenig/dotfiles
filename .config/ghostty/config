@@ -1,0 +1,10 @@
+theme = zenwritten_light
+font-family = MonoLisa
+font-size = 16
+cursor-style = block
+window-padding-x = 15
+resize-overlay = never
+font-feature = -calt
+font-feature = -liga
+font-feature = -dlig
+macos-titlebar-proxy-icon = hidden
