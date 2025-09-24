@@ -16,36 +16,35 @@ return {
       'saghen/blink.cmp',
     },
     config = function()
-      local config = require("lspconfig")
       local capabilities = require("blink.cmp").get_lsp_capabilities()
 
       -- lsps
-      config.lua_ls.setup {
+      vim.lsp.config("lua_ls", {
         capabilities = capabilities
-      }
+      })
 
-      config.sourcekit.setup {
+      vim.lsp.config("sourcekit", {
         capabilities = capabilities,
         cmd = { "xcrun", "sourcekit-lsp" },
         filetypes = { "swift", "objective-c", "objective-cpp" },
-        root_dir = config.util.root_pattern(".git", "Package.swift")
-      }
+        -- root_dir = config.util.root_pattern(".git", "Package.swift")
+      })
 
-      config.ts_ls.setup {
+      vim.lsp.config("ts_ls", {
         capabilities = capabilities,
-      }
+      })
 
-      config.astro.setup {
+      vim.lsp.config("astro", {
         capabilities = capabilities,
-      }
+      })
 
-      config.tinymist.setup {
+      vim.lsp.config("tinymist", {
         capabilities = capabilities,
         settings = {
           formatterMode = "typstyle",
           projectResolution = "lockDatabase"
         }
-      }
+      })
 
       -- keybinds
       vim.keymap.set("n", "rn", vim.lsp.buf.rename)
