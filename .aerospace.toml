@@ -54,10 +54,10 @@ on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
 [gaps]
 inner.horizontal = 30
 inner.vertical =   30
-outer.left =       [{monitor."C34J79x" = 800 }, {monitor."Studio Display" = 500}, 30]
-outer.bottom =     30
-outer.top =        30
-outer.right =       [{monitor."C34J79x" = 800 }, {monitor."Studio Display" = 500}, 30]
+outer.left =       [{monitor."C34J79x" = 800 }, {monitor."Studio Display" = 500}, {monitor."LG HDR 4K" = 450}, 30]
+outer.bottom =     [{monitor."LG HDR 4K" = 100}, 30]
+outer.top =        [{monitor."LG HDR 4K" = 100}, 30]
+outer.right =       [{monitor."C34J79x" = 800 }, {monitor."Studio Display" = 500}, {monitor."LG HDR 4K" = 450}, 30]
 
 # 'main' binding mode declaration
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
