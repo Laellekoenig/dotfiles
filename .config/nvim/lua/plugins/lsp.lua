@@ -19,26 +19,26 @@ return {
       local capabilities = require("blink.cmp").get_lsp_capabilities()
 
       -- lsps
-      vim.lsp.config("lua_ls", {
+      vim.lsp.enable("lua_ls", {
         capabilities = capabilities
       })
 
-      vim.lsp.config("sourcekit", {
+      vim.lsp.enable("sourcekit", {
         capabilities = capabilities,
         cmd = { "xcrun", "sourcekit-lsp" },
         filetypes = { "swift", "objective-c", "objective-cpp" },
         -- root_dir = config.util.root_pattern(".git", "Package.swift")
       })
 
-      vim.lsp.config("ts_ls", {
+      vim.lsp.enable("ts_ls", {
         capabilities = capabilities,
       })
 
-      vim.lsp.config("astro", {
+      vim.lsp.enable("astro", {
         capabilities = capabilities,
       })
 
-      vim.lsp.config("tinymist", {
+      vim.lsp.enable("tinymist", {
         capabilities = capabilities,
         settings = {
           formatterMode = "typstyle",
