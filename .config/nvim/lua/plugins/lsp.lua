@@ -23,6 +23,10 @@ return {
         capabilities = capabilities
       })
 
+      vim.lsp.enable("pyright", {
+        capabilities = capabilities
+      })
+
       vim.lsp.enable("sourcekit", {
         capabilities = capabilities,
         cmd = { "xcrun", "sourcekit-lsp" },
@@ -35,6 +39,10 @@ return {
       })
 
       vim.lsp.enable("astro", {
+        capabilities = capabilities,
+      })
+
+      vim.lsp.enable("gopls", {
         capabilities = capabilities,
       })
 
