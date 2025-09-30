@@ -27,12 +27,16 @@ return {
         capabilities = capabilities
       })
 
-      vim.lsp.enable("sourcekit", {
-        capabilities = capabilities,
-        cmd = { "xcrun", "sourcekit-lsp" },
-        filetypes = { "swift", "objective-c", "objective-cpp" },
-        -- root_dir = config.util.root_pattern(".git", "Package.swift")
+      vim.lsp.enable("clangd", {
+        capabilities = capabilities
       })
+
+      -- vim.lsp.enable("sourcekit", {
+      --   capabilities = capabilities,
+      --   cmd = { "xcrun", "sourcekit-lsp" },
+      --   filetypes = { "swift", "objective-c", "objective-cpp" },
+      --   -- root_dir = config.util.root_pattern(".git", "Package.swift")
+      -- })
 
       vim.lsp.enable("ts_ls", {
         capabilities = capabilities,
