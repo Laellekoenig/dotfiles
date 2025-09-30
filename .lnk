@@ -31,4 +31,5 @@
 .config/nvim/lua/plugins/treesitter.lua
 .config/nvim/lua/plugins/typst-preview.lua
 .config/nvim/lua/plugins/zen.lua
+.config/zed
 .tmux.conf
