@@ -7,4 +7,5 @@ resize-overlay = never
 font-feature = -calt
 font-feature = -liga
 font-feature = -dlig
-macos-titlebar-proxy-icon = hidden
+macos-titlebar-style = hidden
+window-padding-y = 8,6
