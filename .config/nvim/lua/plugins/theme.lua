@@ -1,4 +1,4 @@
-local mode = "light"
+local mode = "dark"
 
 return {
   {
