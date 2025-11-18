@@ -1,7 +1,6 @@
 .aerospace.toml
 .config/ghostty/config
 .config/nvim/init.lua
-.config/nvim/lazy-lock.json
 .config/nvim/lua/config/commands.lua
 .config/nvim/lua/config/lazy.lua
 .config/nvim/lua/config/opts.lua
