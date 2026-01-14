@@ -1,6 +1,7 @@
 .aerospace.toml
 .claude/settings.json
 .claude/skills
+.config/ccstatusline/settings.json
 .config/ghostty/config
 .config/nvim/init.lua
 .config/nvim/lua/config/commands.lua
