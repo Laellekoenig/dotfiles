@@ -24,5 +24,10 @@
   "enabledPlugins": {
     "typescript-lsp@claude-plugins-official": true
   },
-  "model": "opus"
+  "model": "opus",
+  "statusLine": {
+    "type": "command",
+    "command": "npx -y ccstatusline@latest",
+    "padding": 0
+  }
 }
