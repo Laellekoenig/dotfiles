@@ -50,6 +50,10 @@ return {
         capabilities = capabilities,
       })
 
+      vim.lsp.enable("texlab", {
+        capabilities = capabilities,
+      })
+
       vim.lsp.enable("tinymist", {
         capabilities = capabilities,
         settings = {
