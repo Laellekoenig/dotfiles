@@ -1,5 +1,4 @@
 {
-  "model": "opus",
   "hooks": {
     "Notification": [
       {
@@ -29,5 +28,11 @@
   },
   "enabledPlugins": {
     "typescript-lsp@claude-plugins-official": true
+  },
+  "effortLevel": "high",
+  "voiceEnabled": true,
+  "skipAutoPermissionPrompt": true,
+  "permissions": {
+    "defaultMode": "auto"
   }
 }

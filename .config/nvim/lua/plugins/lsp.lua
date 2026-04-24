@@ -31,6 +31,10 @@ return {
         capabilities = capabilities
       })
 
+      vim.lsp.enable("svelte", {
+        capabilities = capabilities
+      })
+
       -- vim.lsp.enable("sourcekit", {
       --   capabilities = capabilities,
       --   cmd = { "xcrun", "sourcekit-lsp" },
