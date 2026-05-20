@@ -1,5 +1,4 @@
 .aerospace.toml
-.claude/settings.json
 .config/ccstatusline/settings.json
 .config/ghostty/config
 .config/nvim/init.lua
