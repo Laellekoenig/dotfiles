@@ -113,9 +113,22 @@ ctrl-u = 'workspace 1'
 ctrl-i = 'workspace 2'
 ctrl-o = 'workspace 3'
 ctrl-p = 'workspace 4'
+ctrl-y = 'workspace 5'
 
-ctrl-m = 'workspace next'
-ctrl-n = 'workspace prev'
+ctrl-m = '''exec-and-forget bash -c '
+if [ "$(aerospace list-workspaces --focused)" = "5" ]; then
+    aerospace workspace 1
+else
+    printf "1\n2\n3\n4\n" | aerospace workspace --stdin --wrap-around next
+fi'
+'''
+ctrl-n = '''exec-and-forget bash -c '
+if [ "$(aerospace list-workspaces --focused)" = "5" ]; then
+    aerospace workspace 4
+else
+    printf "1\n2\n3\n4\n" | aerospace workspace --stdin --wrap-around prev
+fi'
+'''
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
 alt-shift-u = 'move-node-to-workspace 1'
