@@ -105,38 +105,152 @@ alt-shift-h = 'move left'
 alt-shift-l = 'move right'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#resize
-alt-shift-j = 'resize smart -50'
-alt-shift-k = 'resize smart +50'
+# alt-shift-j/k are used below for moving windows between vertical workspaces.
+# alt-shift-j = 'resize smart -50'
+# alt-shift-k = 'resize smart +50'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#workspace
+# Main/surface workspaces
 ctrl-u = 'workspace 1'
 ctrl-i = 'workspace 2'
 ctrl-o = 'workspace 3'
 ctrl-p = 'workspace 4'
 ctrl-y = 'workspace 5'
 
-ctrl-m = '''exec-and-forget bash -c '
-if [ "$(aerospace list-workspaces --focused)" = "5" ]; then
-    aerospace workspace 1
-else
-    printf "1\n2\n3\n4\n" | aerospace workspace --stdin --wrap-around next
-fi'
+# Extra/vertical workspaces
+ctrl-shift-u = 'workspace 1x'
+ctrl-shift-i = 'workspace 2x'
+ctrl-shift-o = 'workspace 3x'
+ctrl-shift-p = 'workspace 4x'
+
+# Move down from the surface row to the matching extra workspace
+ctrl-j = '''exec-and-forget bash -c '
+ws="$(aerospace list-workspaces --focused)"
+case "$ws" in
+    1) aerospace workspace 1x ;;
+    2) aerospace workspace 2x ;;
+    3) aerospace workspace 3x ;;
+    4) aerospace workspace 4x ;;
+    1x|2x|3x|4x) ;;
+esac'
 '''
+
+# Move up from an extra workspace to its surface workspace
+ctrl-k = '''exec-and-forget bash -c '
+ws="$(aerospace list-workspaces --focused)"
+case "$ws" in
+    1x) aerospace workspace 1 ;;
+    2x) aerospace workspace 2 ;;
+    3x) aerospace workspace 3 ;;
+    4x) aerospace workspace 4 ;;
+    1|2|3|4) ;;
+esac'
+'''
+
+# Move right on the surface carousel; from extra workspaces, surface first
+ctrl-m = '''exec-and-forget bash -c '
+ws="$(aerospace list-workspaces --focused)"
+case "$ws" in
+    1x) ws=1 ;;
+    2x) ws=2 ;;
+    3x) ws=3 ;;
+    4x) ws=4 ;;
+esac
+
+case "$ws" in
+    1) aerospace workspace 2 ;;
+    2) aerospace workspace 3 ;;
+    3) aerospace workspace 4 ;;
+    4) aerospace workspace 1 ;;
+    5) aerospace workspace 1 ;;
+esac'
+'''
+
+# Move left on the surface carousel; from extra workspaces, surface first
 ctrl-n = '''exec-and-forget bash -c '
-if [ "$(aerospace list-workspaces --focused)" = "5" ]; then
-    aerospace workspace 4
-else
-    printf "1\n2\n3\n4\n" | aerospace workspace --stdin --wrap-around prev
-fi'
+ws="$(aerospace list-workspaces --focused)"
+case "$ws" in
+    1x) ws=1 ;;
+    2x) ws=2 ;;
+    3x) ws=3 ;;
+    4x) ws=4 ;;
+esac
+
+case "$ws" in
+    1) aerospace workspace 4 ;;
+    2) aerospace workspace 1 ;;
+    3) aerospace workspace 2 ;;
+    4) aerospace workspace 3 ;;
+    5) aerospace workspace 4 ;;
+esac'
 '''
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
+# Move focused window to main/surface workspaces
 alt-shift-u = 'move-node-to-workspace 1'
 alt-shift-i = 'move-node-to-workspace 2'
 alt-shift-o = 'move-node-to-workspace 3'
 alt-shift-p = 'move-node-to-workspace 4'
-alt-shift-m = 'move-node-to-workspace next'
-alt-shift-n = 'move-node-to-workspace prev'
+
+# Move focused window down from surface row to matching extra workspace
+alt-shift-j = '''exec-and-forget bash -c '
+ws="$(aerospace list-workspaces --focused)"
+case "$ws" in
+    1) aerospace move-node-to-workspace 1x ;;
+    2) aerospace move-node-to-workspace 2x ;;
+    3) aerospace move-node-to-workspace 3x ;;
+    4) aerospace move-node-to-workspace 4x ;;
+    1x|2x|3x|4x) ;;
+esac'
+'''
+
+# Move focused window up from extra workspace to matching surface workspace
+alt-shift-k = '''exec-and-forget bash -c '
+ws="$(aerospace list-workspaces --focused)"
+case "$ws" in
+    1x) aerospace move-node-to-workspace 1 ;;
+    2x) aerospace move-node-to-workspace 2 ;;
+    3x) aerospace move-node-to-workspace 3 ;;
+    4x) aerospace move-node-to-workspace 4 ;;
+    1|2|3|4) ;;
+esac'
+'''
+
+# Move focused window right on the surface carousel; from extra workspaces, surface first
+alt-shift-m = '''exec-and-forget bash -c '
+ws="$(aerospace list-workspaces --focused)"
+case "$ws" in
+    1x) ws=1 ;;
+    2x) ws=2 ;;
+    3x) ws=3 ;;
+    4x) ws=4 ;;
+esac
+
+case "$ws" in
+    1) aerospace move-node-to-workspace 2 ;;
+    2) aerospace move-node-to-workspace 3 ;;
+    3) aerospace move-node-to-workspace 4 ;;
+    4) aerospace move-node-to-workspace 1 ;;
+esac'
+'''
+
+# Move focused window left on the surface carousel; from extra workspaces, surface first
+alt-shift-n = '''exec-and-forget bash -c '
+ws="$(aerospace list-workspaces --focused)"
+case "$ws" in
+    1x) ws=1 ;;
+    2x) ws=2 ;;
+    3x) ws=3 ;;
+    4x) ws=4 ;;
+esac
+
+case "$ws" in
+    1) aerospace move-node-to-workspace 4 ;;
+    2) aerospace move-node-to-workspace 1 ;;
+    3) aerospace move-node-to-workspace 2 ;;
+    4) aerospace move-node-to-workspace 3 ;;
+esac'
+'''
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
 alt-tab = 'workspace-back-and-forth'
@@ -165,3 +279,7 @@ alt-shift-l = ['join-with right', 'mode main']
 2 = 1
 3 = 2
 4 = 2
+1x = 1
+2x = 1
+3x = 2
+4x = 2
