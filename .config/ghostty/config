@@ -1,0 +1,11 @@
+theme = light:Rose Pine Dawn,dark:Rose Pine
+font-family = MonoLisa
+font-size = 16
+cursor-style = block
+window-padding-x = 15
+resize-overlay = never
+font-feature = -calt
+font-feature = -liga
+font-feature = -dlig
+macos-titlebar-style = hidden
+window-padding-y = 8,6
